@@ -25,6 +25,15 @@ Manage your vocabulary books using Obsidian's powerful Canvas feature. You can f
 
 ---
 
+## 📂 Markdown Auto-Export (New Optimized Feature)
+
+HiWords now supports automatically exporting words, along with their translations and example sentences, as individual Markdown files (Anki-style card notes) whenever you add or update a word.
+* **Automatic Creation & Update**: Instantly generate or update Markdown files in the background when creating or modifying cards in Canvas.
+* **Custom Export Path**: Choose any folder path in your vault (e.g., `Vocabulary/Cards`) in the settings panel to seamlessly integrate with your knowledge base and revision workflows.
+* **YAML Properties Support**: Add custom YAML properties (e.g., `tags: vocabulary` or `status: todo`) to the exported files for easy indexing and advanced organization.
+
+---
+
 ## 🎯 Smart Highlighting System
 
 HiWords intelligently highlights vocabulary words in your notes, making it easy to spot and review words you're learning. It instantly recognizes and highlights words from your vocabulary books as you read, with highlight colors matching your Canvas node colors for visual consistency. You can flexibly choose to highlight in all files, specific folders, or exclude certain paths. Built on CodeMirror 6 for smooth performance even with large documents.
@@ -176,16 +185,6 @@ Access these commands via `Ctrl/Cmd+P`:
 ## 🔒 Privacy & Security
 
 HiWords is privacy-focused: all vocabulary data is stored locally in your vault, and the plugin works completely offline by default with no telemetry. The optional AI dictionary feature (disabled by default) sends words and sentences directly to your configured AI provider only when you manually use the auto-fill button.
-
----
-
-## 🤝 Support
-
-If you find HiWords helpful, please consider supporting its development:
-
-- [☕ Buy me a coffee on Ko-fi](https://ko-fi.com/catmuse)
-- [⭐ Star the project on GitHub](https://github.com/CatMuse/HiWords)
-- [🐛 Report issues or suggest features](https://github.com/CatMuse/HiWords/issues)
 
 ---
 
