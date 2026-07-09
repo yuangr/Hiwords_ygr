@@ -82,6 +82,15 @@ HiWords 智能地在笔记中高亮显示单词本中的单词，让您轻松发
 2. 搜索 "HiWords"
 3. 点击安装，然后启用
 
+**手动安装（从 Release 下载部署）**
+
+如果您想部署本地或安装指定版本，可以通过以下步骤手动部署：
+1. 前往本仓库的 [Releases 页面](https://github.com/yuangr/Hiwords_ygr/releases) 下载最新发布的三个产物文件：`main.js`、`manifest.json` 和 `styles.css`。
+2. 打开您的 Obsidian 库文件夹，找到隐藏文件夹 `.obsidian/plugins/`（Mac 下可使用 `Cmd+Shift+.` 显示隐藏文件）。
+3. 在 `plugins` 文件夹下新建一个名为 `hi-words` 的子文件夹。
+4. 将下载好的 `main.js`、`manifest.json` 和 `styles.css` 三个文件放入 `hi-words` 文件夹中。
+5. 返回 Obsidian，打开设置 → 社区插件，点击已安装插件旁边的**刷新**按钮，然后在列表中找到 **HiWords** 并启用它。
+
 ### 创建您的第一个单词本
 
 1. **创建 Canvas 文件**

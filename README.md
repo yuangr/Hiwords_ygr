@@ -82,6 +82,15 @@ Select any text and right-click to quickly add it to your vocabulary book, or us
 2. Search for "HiWords"
 3. Click Install, then Enable
 
+**Manual Installation (From Releases)**
+
+If you want to manually deploy or install a specific version of the plugin, follow these steps:
+1. Go to the [Releases page](https://github.com/yuangr/Hiwords_ygr/releases) of this repository and download the latest release assets: `main.js`, `manifest.json`, and `styles.css`.
+2. Open your Obsidian vault folder and navigate to the hidden directory `.obsidian/plugins/` (on macOS, press `Cmd+Shift+.` to toggle visibility of hidden folders).
+3. Create a new folder named `hi-words` inside the `plugins/` directory.
+4. Place the three downloaded files (`main.js`, `manifest.json`, `styles.css`) into the newly created `hi-words` folder.
+5. In Obsidian, go to Settings → Community Plugins, click the **Refresh** button next to installed plugins, locate **HiWords** in the list, and enable it.
+
 ### Creating Your First Vocabulary Book
 
 1. **Create a Canvas file**
