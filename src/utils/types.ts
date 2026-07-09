@@ -269,6 +269,9 @@ export interface HiWordsSettings {
     sidebarDefaultDisplayMode?: 'detail' | 'word';
     // 划词翻译配置
     selectionTranslate: SelectionTranslateSettings;
+    // Markdown 导出设置
+    markdownExportPath?: string; // Markdown 导出路径
+    markdownExportExtraProperties?: string; // 额外的属性配置 (YAML 格式)
 }
 
 // 词汇匹配信息

@@ -115,6 +115,12 @@ export default {
         translate_target_lang_desc: "Target language code (e.g. zh-CN, en, ja)",
         translate_prompt: "Translation prompt",
         translate_prompt_desc: "AI translation prompt template. Use {{text}} and {{to}} as placeholders",
+        // Export settings
+        export_settings: "Export Settings",
+        markdown_export_path: "Markdown Export Path",
+        markdown_export_path_desc: "Folder path to automatically export words as Markdown files. Leave empty to disable.",
+        markdown_export_extra_properties: "Extra Properties",
+        markdown_export_extra_properties_desc: "Additional properties to add to the Markdown file (YAML format, e.g., tags: vocabulary).",
     },
 
     // Sidebar

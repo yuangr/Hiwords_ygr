@@ -150,6 +150,44 @@ export class HiWordsSettingTab extends PluginSettingTab {
                 }));
     }
 
+    /**
+     * 6. 添加导出设置
+     */
+    private addExportSettings() {
+        const { containerEl } = this;
+
+        new Setting(containerEl)
+            .setName(t('settings.export_settings') || 'Export Settings')
+            .setHeading();
+
+        new Setting(containerEl)
+            .setName(t('settings.markdown_export_path') || 'Markdown Export Path')
+            .setDesc(t('settings.markdown_export_path_desc') || 'Folder path to automatically export words as Markdown files. Leave empty to disable.')
+            .addText(text => text
+                .setPlaceholder('e.g., Vocabulary/Cards')
+                .setValue(this.plugin.settings.markdownExportPath || '')
+                .onChange((value) => {
+                    this.runAsync(async () => {
+                        this.plugin.settings.markdownExportPath = value.trim();
+                        await this.plugin.saveSettings();
+                    }, 'HiWords 保存导出路径失败:');
+                }));
+
+        // Extra Properties Setting
+        new Setting(containerEl)
+            .setName(t('settings.markdown_export_extra_properties') || 'Extra Properties')
+            .setDesc(t('settings.markdown_export_extra_properties_desc') || 'Additional properties to add to the Markdown file (YAML format, e.g., tags: vocabulary).')
+            .addTextArea(text => text
+                .setPlaceholder('tags: vocabulary\nstatus: todo')
+                .setValue(this.plugin.settings.markdownExportExtraProperties || '')
+                .onChange((value) => {
+                    this.runAsync(async () => {
+                        this.plugin.settings.markdownExportExtraProperties = value;
+                        await this.plugin.saveSettings();
+                    }, 'HiWords 保存额外属性失败:');
+                }));
+    }
+
     display(): void {
         const { containerEl } = this;
         containerEl.empty();
@@ -169,6 +207,9 @@ export class HiWordsSettingTab extends PluginSettingTab {
 
         // 5. Canvas 设置
         this.addAutoLayoutSettings();
+
+        // 6. 导出设置
+        this.addExportSettings();
     }
 
     /**

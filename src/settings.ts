@@ -53,4 +53,6 @@ export const DEFAULT_SETTINGS: HiWordsSettings = {
         targetLang: 'zh-CN',
         prompt: DEFAULT_TRANSLATE_PROMPT
     },
+    markdownExportPath: '', // 默认导出路径为空
+    markdownExportExtraProperties: '' // 默认没有额外属性
 };

@@ -2,12 +2,14 @@ import { App, TFile } from 'obsidian';
 import { CanvasData, StudyItem, WordDefinition, VocabularyBook, HiWordsSettings, StudyProgressItem, buildStudyKey, inferLearningItemType } from '../utils';
 import { CanvasParser, CanvasEditor } from '../canvas';
 import { HiWordsParser } from '../card';
+import { MarkdownExportService } from '../services/markdown-export-service';
 
 export class VocabularyManager {
     private app: App;
     private canvasParser: CanvasParser;
     private hiWordsParser: HiWordsParser;
     private canvasEditor: CanvasEditor;
+    private markdownExportService: MarkdownExportService;
     private definitions: Map<string, WordDefinition[]> = new Map();
     private settings: HiWordsSettings;
     
@@ -29,6 +31,7 @@ export class VocabularyManager {
         this.canvasParser = new CanvasParser(app, settings);
         this.hiWordsParser = new HiWordsParser(app);
         this.canvasEditor = new CanvasEditor(app, settings);
+        this.markdownExportService = new MarkdownExportService(app, settings);
         this.settings = settings;
     }
 
@@ -319,6 +322,8 @@ export class VocabularyManager {
         this.canvasEditor.updateSettings(settings);
         // 同步给 CanvasParser（影响掌握判定等）
         this.canvasParser.updateSettings(settings);
+        // 同步给 Markdown 导出服务
+        this.markdownExportService.updateSettings(settings);
     }
 
     private applyStoredProgress(definitions: WordDefinition[]): void {
@@ -445,6 +450,14 @@ export class VocabularyManager {
             
             // 4. 异步写入文件并更新真实nodeId
             this.scheduleCanvasSync(bookPath, wordDef);
+
+            // 5. 尝试导出 Markdown 文档
+            try {
+                // 不等待导出完成，避免阻塞UI
+                this.markdownExportService.exportWord(word, definition, aliases);
+            } catch (ex) {
+                console.error('Failed to export markdown:', ex);
+            }
             
             return true;
         } catch (error) {
@@ -744,6 +757,14 @@ export class VocabularyManager {
                 
                 // 4. 重建缓存以立即生效
                 this.rebuildCache();
+
+                // 4.5 尝试导出 Markdown 文档
+                try {
+                    // 不等待导出完成，避免阻碍UI
+                    this.markdownExportService.exportWord(word, definition, aliases);
+                } catch (ex) {
+                    console.error('Failed to export markdown during update:', ex);
+                }
                 
                 return true;
             }

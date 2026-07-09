@@ -115,6 +115,12 @@ export default {
         translate_target_lang_desc: "翻译的目标语言代码（如 zh-CN、en、ja）",
         translate_prompt: "翻译提示词",
         translate_prompt_desc: "AI 翻译的提示词模板，使用 {{text}} 和 {{to}} 作为占位符",
+        // 导出设置
+        export_settings: "导出设置",
+        markdown_export_path: "Markdown 导出路径",
+        markdown_export_path_desc: "自动导出单词为 Markdown 文件的文件夹路径。留空则禁用。",
+        markdown_export_extra_properties: "额外属性",
+        markdown_export_extra_properties_desc: "添加到 Markdown 文件的额外属性（YAML 格式，例如：tags: vocabulary）。",
     },
 
     // 侧边栏

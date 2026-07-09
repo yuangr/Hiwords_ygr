@@ -99,6 +99,12 @@ export interface LanguagePack {
         mode_filename?: string;
         mode_content?: string;
         mode_filename_with_alias?: string;
+        // Markdown 导出设置
+        export_settings?: string;
+        markdown_export_path?: string;
+        markdown_export_path_desc?: string;
+        markdown_export_extra_properties?: string;
+        markdown_export_extra_properties_desc?: string;
     };
     sidebar: {
         title: string;
